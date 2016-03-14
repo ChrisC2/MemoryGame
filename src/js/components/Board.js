@@ -5,44 +5,32 @@ export default class Board extends React.Component {
   state = {
     totalAttempts: 0,
     totalMatches: 0,
-    prevCard: null,
-    waiting: false
+    prevTile: null
   }
 
-  selectTile = (value, index) => {
-    console.log('tile selected : ', value)
-    console.log('index : ', index)
-    if(this.state.waiting){
-      console.log('inside')
-      return
-    }
-    let tiles = this.props.tiles;
+  selectTile = (index) => {
+    console.log('index selected: ', index)
+    const tiles = this.props.tiles;
     tiles[index].flipped = true;
-
-    this.setState({waiting: true,function () {console.log('waiting',this.state.waiting)}})
-
-    if(!this.state.prevCard){
+    if(!this.state.prevTile){
       this.setState({
-        prevCard: { index, value },
-        waiting: false
+        prevTile: { index, value: tiles[index].value }
       })
     } else {
-      if(this.state.prevCard.value === value){
+      if(this.state.prevTile.value === tiles[index].value){
         tiles[index].matched = true;
-        tiles[this.state.prevCard.index].matched = true;
+        tiles[this.state.prevTile.index].matched = true;
         this.setState({
           totalMatches: this.state.totalMatches+1,
-          prevCard: null,
-          waiting: false
+          prevTile: null
         })
       } else {
         setTimeout(() => {
           tiles[index].flipped = false;
-          tiles[this.state.prevCard.index].flipped = false;
+          tiles[this.state.prevTile.index].flipped = false;
           this.setState({
             totalAttempts: this.state.totalAttempts+1,
-            prevCard : null,
-            waiting: false
+            prevTile: null
           })
         }, 1000);
       }
@@ -50,14 +38,15 @@ export default class Board extends React.Component {
   }
 
   render(){
-    const tiles = this.props.tiles.map((tile, index) => {
+    console.log('board rendered')
+     let tiles = this.props.tiles.map((tile, index) => {
       return (
         <Tile
-        onClick={this.selectTile.bind(this, tile.value, index)}
         key={index}
         index={index}
         matched={tile.matched}
         flipped={tile.flipped}
+        onClick={this.selectTile.bind(this, index)}
         tile={tile.value}/>
       )
     })

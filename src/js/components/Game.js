@@ -55,6 +55,7 @@ export default class Game extends React.Component {
     })
   }
   render() {
+    console.log('game rendered')
     return(
       this.state.selected ?
       <Board onRestart={this.restartGame} tiles={this.state.tiles}/> :

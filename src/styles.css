@@ -1,14 +1,17 @@
 
 .tile .flipped {
-    background-color: blue;
-    width: 100px;
-    height: 100px;
+    background-color: white;
+    width: 60px;
+    height: 60px;
     border: 3px red;
     padding: 5px;
+    margin: 20px
   }
 
   .tile {
-    background-color: green;
-    width:100px;
-    height: 100px;
+    text-align: center;
+    background-color: cadetblue;
+    width: 60px;
+    height: 60px;
+    margin: 10px;
   }
