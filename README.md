@@ -4,9 +4,9 @@
 This was my first dive into ES6 & ReactJS. It is an implementation of a memory game in which a user attempts to find all the matching tiles in the set. Included are three difficulty modes, 3D flip animations, score keeping, and responsive styling based on difficulty settings.
 
 ## Run the App:
-### Install Dependencies:
+### Install Dependencies & Run Webpack:
 ```
 npm install
-npm install mysql
+webpack --watch
 
 ```
