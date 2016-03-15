@@ -10,10 +10,10 @@ export default class Tile extends React.Component{
     return nextProps.flipped !== this.props.flipped;
   }
   render(){
-    var classes = classNames('tile', {'flipped': this.props.flipped})
-    var tile = this.props.flipped ? this.props.tile : ''
+    let classes = classNames('tile', {'flipped': this.props.flipped})
+    let tile = this.props.flipped ? this.props.tile : ''
     return(
-      <div className='col-xs-3'>
+      <div className='item'>
         <figure>
           <div className={classes} onClick={this.props.onClick}><img src={tile}/></div>
         </figure>

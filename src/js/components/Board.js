@@ -1,5 +1,7 @@
 import React from 'react';
+import classNames from 'classnames';
 import Tile from './Tile';
+import Status from './Status'
 
 export default class Board extends React.Component {
   constructor(props){
@@ -54,12 +56,17 @@ export default class Board extends React.Component {
     }
   }
   render(){
+    let tileLength = this.props.tiles.length;
+    let classes = classNames('tile-container',
+      {eight: tileLength === 8},
+      {twenty: tileLength === 20},
+      {thirty: tileLength === 30}
+    )
      let tiles = this.props.tiles.map((tile, index) => {
       return (
         <Tile
         key={index}
         index={index}
-        matched={tile.matched}
         flipped={tile.flipped}
         onClick={this.selectTile.bind(this, index)}
         tile={tile.value}/>
@@ -69,7 +76,7 @@ export default class Board extends React.Component {
       <div>
         <div className='row text-center'>
           <div className='col-sm-4'>
-            <button onClick={this.props.onRestart} type="button" className="btn btn-primary">Restart</button>
+            <button onClick={this.props.onRestart} type="button" className="btn btn-default">Restart</button>
           </div>
           <div className='col-sm-4'>
             <h2>Matches:<span className='matches'>{this.state.totalMatches}</span></h2>
@@ -78,11 +85,9 @@ export default class Board extends React.Component {
             <h2>Attempts:<span className='attempts'>{this.state.totalAttempts}</span></h2>
           </div>
         </div>
-        <div className='text-center'>
-          <h2>{this.state.statusMessage}</h2>
-        </div>
-        <div className='tile-container'>
-          <div className='row'>{tiles}</div>
+        <Status tileLength={this.props.tiles.length} matches={this.state.totalMatches} message={this.state.statusMessage}/>
+        <div className={classes}>
+          {tiles}
         </div>
       </div>
     )
