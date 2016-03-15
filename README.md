@@ -1,13 +1,12 @@
-### Stack: HTML5, CSS3, ReactJS, ES6
+# Memory Game
+### Tech Stack: HTML5, CSS3, ReactJS, ES6
+#### Description: 
+This was my first dive into ES6 & ReactJS. It is an implementation of a memory game in which a user attempts to find all the matching tiles in the set. Included are three difficulty modes, 3D flip animations, score keeping, and responsive styling based on difficulty settings.
 
-# Run the App:
-## Install Dependencies:
+## Run the App:
+### Install Dependencies:
 ```
 npm install
-
-```
-## Run Webpack:
-```
-webpack --watch
+npm install mysql
 
 ```
