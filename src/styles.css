@@ -1,17 +1,50 @@
 
-.tile .flipped {
-    background-color: white;
-    width: 60px;
-    height: 60px;
-    border: 3px red;
-    padding: 5px;
-    margin: 20px
-  }
+.tile.flipped {
+  transform: rotateY(0deg);
+  margin: 10px;
+}
+.tile {
+  border-radius: 20px;
+  background-color: #eb6864;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  transform: rotateY(180deg);
+  transition: transform 1s;
+  box-shadow: 10px 10px 5px grey;
+}
+.container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  width: 100%
+}
+.tile-container {
 
-  .tile {
-    text-align: center;
-    background-color: cadetblue;
-    width: 60px;
-    height: 60px;
-    margin: 10px;
-  }
+  transform-style: preserve-3d;
+}
+img {
+  border-radius: 10px;
+  max-height: 100%;
+  max-width: 100%;
+
+}
+button {
+  margin: 22px !important;
+  /*display: block !important;*/
+  width: 150px;
+}
+.matches{
+  color: #22b24c;
+  font-size: 30px;
+  margin: 15px;
+}
+.attempts{
+  color: tomato;
+  font-size: 30px;
+  margin: 15px
+}
+.wrap {
+  float: left;
+  margin: 30px;
+}

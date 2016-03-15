@@ -7,14 +7,17 @@ export default class Tile extends React.Component{
   }
   //Only rerender component if it has been flipped
   shouldComponentUpdate = (nextProps, nextState) => {
-    return nextProps.flipped !== this.props.flipped
+    return nextProps.flipped !== this.props.flipped;
   }
   render(){
-    console.log('tile rendered')
-    var classes = classNames('tile', {'flipped': this.props.flipped}, {'matched': this.props.matched})
-    var tile = this.props.flipped ? this.props.tile : '?'
+    var classes = classNames('tile primary', {'flipped': this.props.flipped}, {'front': true})
+    var tile = this.props.flipped ? this.props.tile : ''
     return(
-      <div className={classes} onClick={this.props.onClick}>{tile}</div>
+      <div className='col-xs-3'>
+        <figure>
+          <div className={classes} onClick={this.props.onClick}><img src={tile}/></div>
+        </figure>
+      </div>
     )
   }
 }
