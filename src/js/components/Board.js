@@ -53,23 +53,21 @@ export default class Board extends React.Component {
       }
     }
   }
-
   render(){
      let tiles = this.props.tiles.map((tile, index) => {
       return (
-          <Tile
-          key={index}
-          index={index}
-          matched={tile.matched}
-          flipped={tile.flipped}
-          onClick={this.selectTile.bind(this, index)}
-          tile={tile.value}/>
-
+        <Tile
+        key={index}
+        index={index}
+        matched={tile.matched}
+        flipped={tile.flipped}
+        onClick={this.selectTile.bind(this, index)}
+        tile={tile.value}/>
       )
     })
     return(
       <div>
-        <div className='row'>
+        <div className='row text-center'>
           <div className='col-sm-4'>
             <button onClick={this.props.onRestart} type="button" className="btn btn-primary">Restart</button>
           </div>
@@ -83,10 +81,10 @@ export default class Board extends React.Component {
         <div className='text-center'>
           <h2>{this.state.statusMessage}</h2>
         </div>
-        <div className='tile-container row text-center'>
-          {tiles}
-          </div>
+        <div className='tile-container'>
+          <div className='row'>{tiles}</div>
         </div>
+      </div>
     )
   }
 }

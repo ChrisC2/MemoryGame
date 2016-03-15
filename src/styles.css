@@ -1,26 +1,18 @@
 
 .tile.flipped {
   transform: rotateY(0deg);
-  margin: 10px;
+  margin: 5px;
 }
 .tile {
+  display: inline-flex;
   border-radius: 20px;
   background-color: #eb6864;
   width: 100px;
   height: 100px;
-  margin: 10px;
+  margin: 5px;
   transform: rotateY(180deg);
   transition: transform 1s;
   box-shadow: 10px 10px 5px grey;
-}
-.container {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  width: 100%
-}
-.tile-container {
-
   transform-style: preserve-3d;
 }
 img {
@@ -29,9 +21,14 @@ img {
   max-width: 100%;
 
 }
+.tile-container {
+  width: 500px;
+  height: 800px;
+  text-align: center;
+  margin: 0 auto;
+}
 button {
   margin: 22px !important;
-  /*display: block !important;*/
   width: 150px;
 }
 .matches{

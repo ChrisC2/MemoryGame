@@ -10,7 +10,7 @@ export default class Tile extends React.Component{
     return nextProps.flipped !== this.props.flipped;
   }
   render(){
-    var classes = classNames('tile primary', {'flipped': this.props.flipped}, {'front': true})
+    var classes = classNames('tile', {'flipped': this.props.flipped})
     var tile = this.props.flipped ? this.props.tile : ''
     return(
       <div className='col-xs-3'>
