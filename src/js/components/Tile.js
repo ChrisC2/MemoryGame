@@ -1,11 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
 
+//Child Component off Board
 export default class Tile extends React.Component{
   constructor(props){
     super(props)
   }
-  //Only rerender component if it has been flipped
+  //(Optimization) Only rerender component if it has been flipped
   shouldComponentUpdate = (nextProps, nextState) => {
     return nextProps.flipped !== this.props.flipped;
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 
+//Child Component off Game
 export default class Difficulty extends React.Component {
   render(){
     return (

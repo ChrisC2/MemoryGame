@@ -23,6 +23,7 @@ var getData = () => {
   ]
 }
 
+//Main Parent Component
 export default class Game extends React.Component {
   constructor(props){
     super(props);
@@ -31,6 +32,7 @@ export default class Game extends React.Component {
       tiles: null
     }
   }
+  //Select Difficulty Easy
   selectEasy = () => {
     let sliceTiles = getData().slice(0,4);
     let copy = getData().slice(0,4);
@@ -39,6 +41,7 @@ export default class Game extends React.Component {
       selected: true
     })
   }
+  //Select Difficulty Medium
   selectMedium = () => {
     let sliceTiles = getData().slice(0,10)
     let copy = getData().slice(0,10)
@@ -47,6 +50,7 @@ export default class Game extends React.Component {
       selected: true
     })
   }
+  //Select Difficulty Hard
   selectHard = () => {
     let copy = getData()
     this.setState({
@@ -54,6 +58,7 @@ export default class Game extends React.Component {
       selected: true
     })
   }
+  //Restart Game
   restartGame = () => {
     this.setState({
       selected: false,

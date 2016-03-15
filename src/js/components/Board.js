@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Tile from './Tile';
 import Status from './Status'
 
+//Child Component off Game
 export default class Board extends React.Component {
   constructor(props){
     super(props)
@@ -56,12 +57,14 @@ export default class Board extends React.Component {
     }
   }
   render(){
+    //Responsive CSS based on Number of Tiles
     let tileLength = this.props.tiles.length;
     let classes = classNames('tile-container',
       {eight: tileLength === 8},
       {twenty: tileLength === 20},
       {thirty: tileLength === 30}
     )
+    //Appends array of Tile Components
      let tiles = this.props.tiles.map((tile, index) => {
       return (
         <Tile

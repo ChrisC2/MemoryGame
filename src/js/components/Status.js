@@ -1,5 +1,6 @@
 import React from 'react'
 
+//Child Component off Board
 export default class Status extends React.Component {
   render(){
     const status = this.props.tileLength/2 === this.props.matches ?
