@@ -12,13 +12,11 @@ export default class Tile extends React.Component{
   }
   render(){
     let classes = classNames('tile', {'flipped': this.props.flipped})
-    let tile = this.props.flipped ? this.props.tile : ''
+    let tile = this.props.flipped ?
+    <div className='face back'><img src={this.props.tile}/></div> :
+    <div className='face front'></div>
     return(
-      <div className='item'>
-        <figure>
-          <div className={classes} onClick={this.props.onClick}><img src={tile}/></div>
-        </figure>
-      </div>
+      <div className={classes} onClick={this.props.onClick}>{tile}</div>
     )
   }
 }

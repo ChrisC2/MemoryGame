@@ -1,19 +1,62 @@
 
-.tile.flipped {
-  transform: rotateY(0deg);
+.tile-container .tile.flipped {
+  transform: rotatey(180deg);
+  -webkit-transform: rotatey(180deg);
+  -ms-transform: rotatey(180deg);
+  -moz-transform: rotatey(180deg);
+  -o-transform: rotatey(180deg);
   margin: 5px;
 }
-.tile {
+
+.tile-container .tile {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   border-radius: 20px;
   background-color: #eb6864;
   width: 100px;
   height: 100px;
   margin: 5px;
-  transform: rotateY(180deg);
-  transition: transform 1s;
-  box-shadow: 10px 10px 5px grey;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 1s;
+  -moz-transform-style: preserve-3d;
+  -moz-transition: 1s;
+  -ms-transform-style: preserve-3d;
+  -ms-transition: 1s;
+  -o-transform-style: preserve-3d;
+  -o-transition: 1s;
   transform-style: preserve-3d;
+  transition: 1s;
+  box-shadow: 10px 10px 5px grey;
+}
+.tile-container .tile .face {
+  background-color: #eb6864;
+  position: absolute;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+
+}
+.tile-container .tile.front {
+  position: absolute;
+  background-color: #eb6864;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: 20px;
+}
+.tile-container .tile .back {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: 20px;
+  transform: rotatey(-180deg);
+  -webkit-transform: rotatey(-180deg);
+  -ms-transform: rotatey(-180deg);
+  -moz-transform: rotatey(-180deg);
+  -o-transform: rotatey(-180deg);
 }
 img {
   border-radius: 10px;
@@ -25,6 +68,10 @@ img {
   height: 800px;
   text-align: center;
   margin: 0 auto;
+  -webkit-perspective: 800;
+  -ms-perspective: 800;
+  -moz-perspective: 800;
+  -o-perspective: 800;
 }
 .eight {
   max-width: 500px;
@@ -48,7 +95,4 @@ button {
   color: tomato;
   font-size: 30px;
   margin: 15px
-}
-.item {
-  display: inline-flex;
 }
