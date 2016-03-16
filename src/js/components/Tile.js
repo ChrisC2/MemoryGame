@@ -13,7 +13,7 @@ export default class Tile extends React.Component{
   render(){
     let classes = classNames('tile', {'flipped': this.props.flipped})
     let tile = this.props.flipped ?
-    <div className='face back'><img src={this.props.tile}/></div> :
+    <div className='face back stop-flickering'><img src={this.props.tile}/></div> :
     <div className='face front'></div>
     return(
       <div className={classes} onClick={this.props.onClick}>{tile}</div>

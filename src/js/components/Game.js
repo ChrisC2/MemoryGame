@@ -3,7 +3,7 @@ import Difficulty from './Difficulty';
 import Board from './Board';
 
 //Shuffles & gets Data
-var getData = () => {
+const getData = () => {
   return [
     {value: 'img/ducati-logo.png', matched: false, flipped: false},
     {value: 'img/Ferrari-Logo.jpg', matched: false, flipped: false},
@@ -23,6 +23,16 @@ var getData = () => {
   ]
 }
 
+const shuffleData = function (data) {
+    for(var i = 0; i < data.length; i++) {
+        var indexToSwap = Math.floor(Math.random() * (i + 1));
+        var temp = data[i];
+        data[i] = data[indexToSwap];
+        data[indexToSwap] = temp;
+    }
+    return data;
+}
+
 //Main Parent Component
 export default class Game extends React.Component {
   constructor(props){
@@ -36,8 +46,9 @@ export default class Game extends React.Component {
   selectEasy = () => {
     let sliceTiles = getData().slice(0,4);
     let copy = getData().slice(0,4);
+    let duplicated = sliceTiles.concat(copy);
     this.setState({
-      tiles: sliceTiles.concat(copy),
+      tiles: shuffleData(duplicated),
       selected: true
     })
   }
@@ -45,16 +56,18 @@ export default class Game extends React.Component {
   selectMedium = () => {
     let sliceTiles = getData().slice(0,10)
     let copy = getData().slice(0,10)
+    let duplicated = sliceTiles.concat(copy);
     this.setState({
-      tiles: sliceTiles.concat(copy),
+      tiles: shuffleData(duplicated),
       selected: true
     })
   }
   //Select Difficulty Hard
   selectHard = () => {
     let copy = getData()
+    let duplicated = getData().concat(copy);
     this.setState({
-      tiles: getData().concat(copy),
+      tiles: shuffleData(duplicated),
       selected: true
     })
   }
