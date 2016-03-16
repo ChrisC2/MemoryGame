@@ -17,9 +17,8 @@ export default class Board extends React.Component {
   }
 
   selectTile = (index) => {
-    console.log('running')
     const tiles = this.props.tiles;
-    if(this.state.totalSelected === 2 || tiles[index].matched){
+    if(this.state.totalSelected === 2 || tiles[index].matched || tiles[index].flipped){
       return;
     }
     //Flip tile
