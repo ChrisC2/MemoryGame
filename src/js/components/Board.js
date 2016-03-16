@@ -9,7 +9,7 @@ export default class Board extends React.Component {
     super(props)
     this.state = {
       totalAttempts: 0,
-      totalMatches: 0,
+      pairsLeft: this.props.tiles.length/2,
       prevTile: null,
       statusMessage: 'Choose a Tile!',
       totalSelected: 0
@@ -36,7 +36,7 @@ export default class Board extends React.Component {
         tiles[index].matched = true;
         tiles[this.state.prevTile.index].matched = true;
         this.setState({
-          totalMatches: this.state.totalMatches+1,
+          pairsLeft: this.state.pairsLeft-1,
           prevTile: null,
           statusMessage: "It's a Match!",
           totalSelected: 0
@@ -59,7 +59,7 @@ export default class Board extends React.Component {
   render(){
     //Responsive CSS based on Number of Tiles
     let tileLength = this.props.tiles.length;
-    let classes = classNames('tile-container',
+    let classes = classNames('stop-flickering tile-container',
       {eight: tileLength === 8},
       {twenty: tileLength === 20},
       {thirty: tileLength === 30}
@@ -82,13 +82,13 @@ export default class Board extends React.Component {
             <button onClick={this.props.onRestart} type="button" className="btn btn-default">Restart</button>
           </div>
           <div className='col-sm-4'>
-            <h2>Matches:<span className='matches'>{this.state.totalMatches}</span></h2>
+            <h2>Remaining Pairs:<span className='matches'>{this.state.pairsLeft}</span></h2>
           </div>
           <div className='col-sm-4'>
             <h2>Attempts:<span className='attempts'>{this.state.totalAttempts}</span></h2>
           </div>
         </div>
-        <Status tileLength={this.props.tiles.length} matches={this.state.totalMatches} message={this.state.statusMessage}/>
+        <Status tileLength={this.props.tiles.length} pairs={this.state.pairsLeft} message={this.state.statusMessage}/>
         <div className={classes}>
           {tiles}
         </div>
